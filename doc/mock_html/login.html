@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+
+<form action="top.html">
+    <p>
+
+        <input type="text" name="ユーザ名" id="username" placeholder="ユーザ名" value="hoge"
+               pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,12}$"
+               data-validation-msg="Username must be 2 - 12 characters" required/>
+    </p>
+
+    <p>
+        <input type="password" name="パスワード" id="password" placeholder="パスワード" value="hoge"
+               pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,12}$" data-validation-msg="Password must be 2-12 characters"
+               required/>
+    </p>
+    <input type="Submit" name="ログイン" id="Submit"/>
+    </fieldset>
+</form>
+</body>
+</html>
