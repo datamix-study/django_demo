@@ -6,20 +6,25 @@
 </head>
 <body>
 
-<form action="top.html">
+{% if message %}
+{{ message }}
+{% endif %}
+
+<form action="{% url 'demo:login' %}" method="post">
+
+    {% csrf_token %}
     <p>
 
-        <input type="text" name="ユーザ名" id="username" placeholder="ユーザ名" value="hoge"
+        <input type="text" name="username" id="username" placeholder="ユーザ名" value=""
                pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,12}$"
                data-validation-msg="Username must be 2 - 12 characters" required/>
     </p>
-
     <p>
-        <input type="password" name="パスワード" id="password" placeholder="パスワード" value="hoge"
+        <input type="password" name="password" id="password" placeholder="パスワード" value=""
                pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,12}$" data-validation-msg="Password must be 2-12 characters"
                required/>
     </p>
-    <input type="Submit" name="ログイン" id="Submit"/>
+    <input type="Submit" value="ログイン" id="submit"/>
     </fieldset>
 </form>
 </body>
