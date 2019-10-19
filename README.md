@@ -20,3 +20,5 @@ Pycharmが作成する設定ファイル等（.idea、venv等）はgitにupし�
 [はじめての Django アプリ作成](https://docs.djangoproject.com/ja/2.2/intro/)
 
 [Dive Into Python 3Dive Into Python 3](http://diveintopython3-ja.rdy.jp/special-method-names.html)
+
+編集テスト
