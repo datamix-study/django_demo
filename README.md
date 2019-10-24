@@ -4,13 +4,17 @@
 Djangoを使用して機械学習をweb化する
 
 ## 動作確認方法
-```
-> cd src  # manage.pyがあるディレクトリに移動する
-> python manage.py migrate  # demoアプリ用のDB更新スクリプトを実行し、DBを作成
-> python manage.py runserver  # サーバーを起動する
-```
+1. [wikiのgit-連携](https://github.com/snufkin92/django_demo/wiki/Pycharm#git-連携) を参考にリポジトリをクローンする
+1. [wikiのDjangoコマンド実行](https://github.com/snufkin92/django_demo/wiki/Pycharm#djangoコマンド実行)を参考にプロジェクトを起動する。  
+   直接コマンドを入力する場合はターミナルから下記を実行する
+    ```
+    > cd src  # manage.pyがあるディレクトリに移動する
+    > python manage.py migrate  # demoアプリ用のDB更新スクリプトを実行し、DBを作成
+    > python manage.py runserver  # サーバーを起動する
+    ```
+1. http://127.0.0.1:8000/demo/ にアクセスする
 
-※ 初回起動時は下記を行い、ユーザーを登録する
+※ 初回起動時は下記コマンドを実行し、ユーザーを登録する(ユーザー名 = demo、 パスワード = demoのユーザー)
 1. DBの作成
 ```
 > cd src  # manage.pyがあるディレクトリに移動する
@@ -18,11 +22,11 @@ Djangoを使用して機械学習をweb化する
 > python manage.py migrate  # demoアプリ用のDB更新スクリプトを実行し、DBを作成
 ```
 
-1. ユーザー登録
+2. ユーザー登録
 ```
 > sqlite3 db.sqlite3  # 使用しているsqliteというDBに入る
-sqlite> insert into demo_user (username, password, regist_date) values ('demo',
-sqlite> select * from demo_user;  -- `1|demo|demo|2019-10-01 01:02:03` のような
+sqlite> insert into demo_user (username, password, regist_date) values ('demo', 'demo', current_timestamp);
+sqlite> select * from demo_user;  -- `1|demo|demo|2019-10-01 01:02:03` のようなレコードが表示されることを確認
 sqlite> .exit  -- sqlite DBから抜ける
 ```
 
