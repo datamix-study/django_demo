@@ -34,6 +34,9 @@ sqlite> .exit  -- sqlite DBから抜ける
 ## 画面モック
 [mock_html.zip](doc/mock_html.zip)をダウンロードしてお試しください
 
+- [ログイン]（http://htmlpreview.github.io/?https://github.com/datamix-study/django_demo/blob/master/doc/mock_html/login.html）
+- [一覧]（https://htmlpreview.github.io/?https://github.com/datamix-study/django_demo/blob/master/doc/mock_html/list.html）
+
 ## 構成
 - 検討中
 
