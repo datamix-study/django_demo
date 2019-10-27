@@ -2,6 +2,13 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'demo/css/bootstrap.min.css' %}">
+
+
     <title>login</title>
 </head>
 <body>
@@ -10,22 +17,31 @@
 {{ message }}
 {% endif %}
 
-<form action="{% url 'demo:login' %}" method="post">
+<div class="mx-auto" style="width: 200px;">
+    <div class="container">
+        <h1>ログイン</h1>
 
-    {% csrf_token %}
-    <p>
-
-        <input type="text" name="username" id="username" placeholder="ユーザ名" value=""
-               pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,12}$"
-               data-validation-msg="Username must be 2 - 12 characters" required/>
-    </p>
-    <p>
-        <input type="password" name="password" id="password" placeholder="パスワード" value=""
-               pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,12}$" data-validation-msg="Password must be 2-12 characters"
-               required/>
-    </p>
-    <input type="Submit" value="ログイン" id="submit"/>
-    </fieldset>
-</form>
+        <form action="{% url 'demo:login' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="ユーザ名"></label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="ユーザ名"
+                       pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{3,12}$"
+                       title="英数字を4-12文字を入力して下さい"
+                       autofocus required/>
+            </div>
+            <div class="form-group">
+                <label for="パスワード"></label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="パスワード"
+                       pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{3,12}$"
+                       title="英数字を4-12文字を入力して下さい"
+                       autofocus required/>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" title="ログイン" value="ログイン"/>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>
