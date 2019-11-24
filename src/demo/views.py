@@ -17,8 +17,8 @@ def login(request):
         # print(request.POST['password'])
         # user = User.objects.get(pk=1)
 
-        context = {"username":user.username}
-        return render(request, 'demo/top.html', context)
+        request.session['username'] = user.username
+        return render(request, 'demo/list.html')
 
     except User.DoesNotExist:
         context = {"message":"User DoesNotExist"}
