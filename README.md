@@ -36,6 +36,10 @@ sqlite> .exit  -- sqlite DBから抜ける
 
 - [ログイン](http://htmlpreview.github.io/?https://github.com/datamix-study/django_demo/blob/master/doc/mock_html/login.html)
 - [一覧](https://htmlpreview.github.io/?https://github.com/datamix-study/django_demo/blob/master/doc/mock_html/list.html)
+- [商品詳細](https://htmlpreview.github.io/?https://github.com/datamix-study/django_demo/blob/master/doc/mock_html/item_detail.html)
+- [カート](https://htmlpreview.github.io/?https://github.com/datamix-study/django_demo/blob/master/doc/mock_html/cart.html)
+- [購入確認]()
+- [購入完了]()
 
 ## 構成
 - 検討中
