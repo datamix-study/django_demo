@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'demo/css/bootstrap.min.css' %}">
+    <title>login</title>
+</head>
+<body>
+<div class="mx-auto">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="row">
+                <div class="col-6 col-md-4">
+                    <img src="{% static 'demo/img/'%}{{item.image_path}}" class="img-fluid" alt="{{item.name}}">
+                </div>
+                <div class="col-12 col-md-8">
+                    <div class="row">
+                        <div class="col">
+                            <h5>{{item.name}}</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-justify">商品説明</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-justify">{{item.descrition}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-justify">カテゴリー</p>
+                        </div>
+                        <div class="col">
+                            <p class="text-justify">{{item.caetgory.name}}</p>
+                        </div>
+                        <div class="col">
+                            <p class="text-justify">価格</p>
+                        </div>
+                        <div class="col">
+                            <p class="text-justify">{{item.price}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="購入数"
+                                       aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button">購入</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+
+                            <button class="btn btn-primary" type="button">戻る</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
