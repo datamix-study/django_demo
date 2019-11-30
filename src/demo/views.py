@@ -1,8 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic import DetailView
 
-from .models import User
+from .models import User, Item
 
 
 def index(request):
@@ -10,7 +11,6 @@ def index(request):
 
 
 def login(request):
-
     try:
         user = User.objects.get(username=request.POST['username'], password=request.POST['password'])
         # print(request.POST['username'])
@@ -21,11 +21,11 @@ def login(request):
         return render(request, 'demo/list.html')
 
     except User.DoesNotExist:
-        context = {"message":"User DoesNotExist"}
+        context = {"message": "User DoesNotExist"}
         return render(request, 'demo/login.html', context)
 
     except User.MultipleObjectsReturned:
-        context = {"message":"Multiple User found"}
+        context = {"message": "Multiple User found"}
         return render(request, 'demo/login.html', context)
 
 
@@ -49,3 +49,10 @@ class List(generic.ListView, LoginRequiredMixin):
 
     def get_queryset(self):
         return [self.Item(i, '商品{}'.format(i), '商品概要{}'.format(i)) for i in range(25)]
+
+
+class ItemDetailView(DetailView):
+    item = Item
+
+    def get_object(self):
+        return Item.objects.get(pk=1)
