@@ -48,7 +48,25 @@ class Item(models.Model):
     # 在庫数
     stock_quantity = models.PositiveSmallIntegerField()
 
-# class Cart(models.Model):
-#     """
-#     カート情報
-#     """
+
+class Cart(models.Model):
+    """
+    カート
+    """
+    user = models.ForeignKey('User', on_delete=models.CASCADE, null=True)
+
+    def addItem(self, item):
+        cart_item = CartItem.objects.create(item=item, cart=self)
+        cart_item.quantity += 1
+        cart_item.save()
+
+
+class CartItem(models.Model):
+    """
+    カート内の商品
+    """
+    cart = models.ForeignKey('Cart', on_delete=models.CASCADE, null=True)
+
+    item = models.OneToOneField(Item, on_delete=models.CASCADE, null=True)
+
+    quantity = models.PositiveSmallIntegerField(default=0)
