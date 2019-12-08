@@ -60,3 +60,7 @@ class ItemDetailView(DetailView):
 
     def get_object(self):
         return Item.objects.get(pk=1)
+
+
+def cart(request):
+    return render(request, 'demo/cart.html')

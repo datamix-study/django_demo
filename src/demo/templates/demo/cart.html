@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cart</title>
+    <link href="../../static/demo/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+         <div>ユーザ名</div>
+         <div class="float-left"><button type="button" class="btn btn-primary">商品一覧に戻る</button></div>
+         <div class="float-right"><button type="button" class="btn btn-primary">次へ進む</button></div>
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th class="col-xs-8">商品詳細</th>
+        <th class="col-xs-2">個数</th>
+        <th class="col-xs-2">価格</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><img class="item_01" src="../../static/demo/img/item_01.jpg" alt="item_01" width="300">商品1</th>
+          <td><input name="quantity1" id="quantity1" placeholder="" class="form-control input-md" type="text">
+            　<div class="float-right"><button type="button" class="btn btn-link">削除</button></div>
+          </td>
+          <td>1,000円</td>
+      </tr>
+      <tr>
+        <th scope="row"><img class="item_02" src="../../static/demo/img/item_02.jpg" alt="item_02" width="300">商品2</th>
+          <td><input name="quantity2" id="quantity2" placeholder="" class="form-control input-md" type="text">
+              <div class="float-right"><button type="button" class="btn btn-link">削除</button></div>
+          </td>
+          <td>4,000円</td>
+      </tr>
+      <tr>
+        <th scope="row"><img class="item_03" src="../../static/demo/img/item_03.jpg" alt="item_03" width="300">商品3</th>
+          <td><input name="quantity3" id="quantity3" placeholder="" class="form-control input-md" type="text">
+              <div class="float-right"><button type="button" class="btn btn-link">削除</button></div>
+          </td>
+          <td>3,000円</td>
+      </tr>
+    </tbody>
+  </table>
+         <div class="float-left"><button type="button" class="btn btn-primary">商品一覧に戻る</button></div>
+         <div class="float-right"><button type="button" class="btn btn-primary">次へ進む</button></div>
+</div>
+</body>
+</html>

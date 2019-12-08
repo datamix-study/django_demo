@@ -18,4 +18,7 @@ urlpatterns = [
 
     # 商品詳細
     path('detail/<int:pk>/', views.ItemDetailView.as_view(), name='item_detail'),
+
+    # カート
+    path('cart', views.cart, name='cart'),
 ]
