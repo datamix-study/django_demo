@@ -1,8 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core import serializers
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 from django.views import generic
 from django.views.generic import DetailView
-from django.core import serializers
 
 from .models import User, Item, Cart, CartItem
 
@@ -30,7 +32,7 @@ def login(request):
 
         request.session['cart'] = serializers.serialize('json', Cart.objects.all())
         request.session['username'] = user.username
-        return render(request, 'demo/list.html')
+        return HttpResponseRedirect(reverse('demo:list'))
 
     except User.DoesNotExist:
         context = {"message": "User DoesNotExist"}
