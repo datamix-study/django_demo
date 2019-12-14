@@ -61,7 +61,7 @@ class ItemDetailView(DetailView):
     item = Item
 
     def get_object(self):
-        return Item.objects.get(pk=1)
+        return Item.objects.get(pk=self.kwargs["pk"])
 
 
 def cart(request):
