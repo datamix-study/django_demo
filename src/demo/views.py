@@ -54,7 +54,16 @@ class List(generic.ListView, LoginRequiredMixin):
     template_name = 'demo/list.html'
 
     def get_queryset(self):
-        return Item.objects.all()
+        keyword = self.request.GET.get('keyword', '')
+        if keyword:
+            return Item.objects.filter(name__contains=keyword)
+        else:
+            return Item.objects.all()
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['keyword'] = self.request.GET.get('keyword', '')
+        return context
 
 
 class ItemDetailView(DetailView):

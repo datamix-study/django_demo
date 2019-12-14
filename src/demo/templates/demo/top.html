@@ -5,10 +5,9 @@
     <title>top</title>
 </head>
 <body>
-<li>ユーザ名：{{ username }}</li>
+<li>ユーザ名：{{ request.session.username }}</li>
 
 <div><a href="{% url 'demo:list' %}">一覧</a></div>
-<div><a href="https://datamix.co.jp/data-scientist/">検索</a></div>
 
 </body>
 </html>
