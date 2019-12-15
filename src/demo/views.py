@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core import serializers
 from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views import generic
@@ -44,7 +45,12 @@ def login(request):
 
 
 def top(request):
-    return render(request, 'demo/top.html')
+    return redirect(request, 'demo/top.html')
+
+
+def logout(request):
+    request.session.flush()
+    return redirect('demo:index')
 
 
 class List(generic.ListView, LoginRequiredMixin):

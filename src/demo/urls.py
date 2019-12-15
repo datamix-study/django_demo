@@ -10,6 +10,9 @@ urlpatterns = [
     # login
     path('login', views.login, name='login'),
 
+    # login
+    path('logout', views.logout, name='logout'),
+
     # top
     path('top', views.top, name='top'),
 
@@ -18,6 +21,9 @@ urlpatterns = [
 
     # 商品詳細
     path('detail/<int:pk>/', views.ItemDetailView.as_view(), name='item_detail'),
+
+    # 商品詳細からのカートへの追加
+    # path('detail/add/<int:pk>/', views.ItemDetailView.as_view(), name='item_detail'),
 
     # カート
     path('cart', views.cart, name='cart'),
