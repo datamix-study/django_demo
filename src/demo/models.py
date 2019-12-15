@@ -55,6 +55,8 @@ class Cart(models.Model):
     """
     user = models.ForeignKey('User', on_delete=models.CASCADE, null=True)
 
+    del_flg = models.BooleanField(default=False)
+
     def addItem(self, item):
         cart_item = CartItem.objects.create(item=item, cart=self)
         cart_item.quantity += 1

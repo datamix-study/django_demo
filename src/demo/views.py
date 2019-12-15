@@ -20,7 +20,7 @@ def login(request):
         # TODO:cartオブジェクトの削除（動作確認を簡易にする為、ログイン時にカートへ商品を投入）
         cart = None
         try:
-            cart = Cart.objects.get(user_id=user.pk)
+            cart = Cart.objects.filter(user_id=user.pk, del_flg=False)
         except Cart.DoesNotExist:
             cart = Cart.objects.create(user_id=user.pk)
             cart.save()
