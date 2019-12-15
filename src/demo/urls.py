@@ -23,7 +23,7 @@ urlpatterns = [
     path('detail/<int:pk>/', views.ItemDetailView.as_view(), name='item_detail'),
 
     # 商品詳細からのカートへの追加
-    # path('detail/add/<int:pk>/', views.ItemDetailView.as_view(), name='item_detail'),
+    path('item/add/', views.item_add, name='item_add'),
 
     # カート
     path('cart', views.cart, name='cart'),

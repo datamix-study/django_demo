@@ -16,9 +16,9 @@ def index(request):
 
 def login(request):
     try:
+        # formを経由する
         user = User.objects.get(username=request.POST['username'], password=request.POST['password'])
 
-        # TODO:cartオブジェクトの削除（動作確認を簡易にする為、ログイン時にカートへ商品を投入）
         cart = None
         try:
             cart = Cart.objects.filter(user_id=user.pk, del_flg=False)
@@ -26,14 +26,9 @@ def login(request):
             cart = Cart.objects.create(user_id=user.pk)
             cart.save()
 
-            item = Item.objects.get(pk=1)
-            cart_item = CartItem.objects.create(item=item, cart=cart)
-            cart_item.quantity += 1
-            cart_item.save()
-
         request.session['cart'] = serializers.serialize('json', Cart.objects.all())
         request.session['username'] = user.username
-        return HttpResponseRedirect(reverse('demo:list'))
+        return redirect('demo:list')
 
     except User.DoesNotExist:
         context = {"message": "User DoesNotExist"}
@@ -77,6 +72,19 @@ class ItemDetailView(DetailView):
 
     def get_object(self):
         return Item.objects.get(pk=self.kwargs["pk"])
+
+def item_add(request):
+    # TODO:formを経由する
+
+    # login確認
+    if not "username" in request.session:
+        # セッションの中身を全て削除した上でlogin画面へ遷移
+        return redirect('demo:logout')
+
+    # 競合状態、在庫数を考慮してカートへ商品追加
+
+    # 元のページへ遷移
+    return redirect(request.META['HTTP_REFERER'])
 
 
 def cart(request):
