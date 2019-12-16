@@ -13,9 +13,6 @@ urlpatterns = [
     # login
     path('logout', views.logout, name='logout'),
 
-    # top
-    path('top', views.top, name='top'),
-
     # 商品一覧/検索
     path('list', views.List.as_view(), name='list'),
 

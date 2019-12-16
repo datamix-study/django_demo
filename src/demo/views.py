@@ -39,10 +39,6 @@ def login(request):
         return render(request, 'demo/login.html', context)
 
 
-def top(request):
-    return redirect(request, 'demo/top.html')
-
-
 def logout(request):
     request.session.flush()
     return redirect('demo:index')
@@ -72,6 +68,7 @@ class ItemDetailView(DetailView):
 
     def get_object(self):
         return Item.objects.get(pk=self.kwargs["pk"])
+
 
 def item_add(request):
     # TODO:formを経由する
