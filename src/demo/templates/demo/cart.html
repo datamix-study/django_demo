@@ -9,8 +9,10 @@
 <body>
     <div class="container">
          <div>ユーザ名</div>
-         <div class="float-left"><button type="button" class="btn btn-primary">商品一覧に戻る</button></div>
-         <div class="float-right"><button type="button" class="btn btn-primary">次へ進む</button></div>
+         <div class="float-left"><a href="{% url 'demo:list' %}" class="btn btn-primary" tabindex="-1"
+            role="button" aria-disabled="true">商品一覧に戻る</a></div>
+         <div class="float-right"><a href="#" class="btn btn-primary" tabindex="-1"
+            role="button" aria-disabled="true">次に進む</a></div>
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
@@ -43,8 +45,10 @@
       </tr>
     </tbody>
   </table>
-         <div class="float-left"><button type="button" class="btn btn-primary">商品一覧に戻る</button></div>
-         <div class="float-right"><button type="button" class="btn btn-primary">次へ進む</button></div>
+         <div class="float-left"><a href="{% url 'demo:list' %}" class="btn btn-primary" tabindex="-1"
+            role="button" aria-disabled="true">商品一覧に戻る</a></div>
+         <div class="float-right"><a href="#" class="btn btn-primary" tabindex="-1"
+            role="button" aria-disabled="true">次に進む</a></div>
 </div>
 </body>
 </html>
