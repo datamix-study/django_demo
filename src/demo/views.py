@@ -85,4 +85,5 @@ def item_add(request):
 
 
 def cart(request):
-    return render(request, 'demo/cart.html')
+    username = request.session['username']
+    return render(request, 'demo/cart.html', {'username': username})
